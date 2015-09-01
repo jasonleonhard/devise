@@ -1,0 +1,51 @@
+<!-- <div class="container">
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">Project name</a>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <form class="navbar-form navbar-right">
+          <div class="form-group">
+            <input type="text" placeholder="Email" class="form-control">
+          </div>
+          <div class="form-group">
+            <input type="password" placeholder="Password" class="form-control">
+          </div>
+          <button type="submit" class="btn btn-success">Sign in</button>
+        </form>
+      </div>/.navbar-collapse 
+    </div>
+  </nav>
+</div> -->
+
+
+<div class="container">
+  <nav class="navbar navbar-inverse navbar-fixed-top"><!-- <div id="user_nav"> -->
+    <div class="container">
+      <%= yield %>
+
+      <% if user_signed_in? %>
+        <a class="btn btn-xs btn-default"> Signed in as <%= current_user.email %>. Not you? </a>
+        <%= link_to "Sign Out", destroy_user_session_path, :method => :delete, :class => "btn btn-default btn-xs" %>
+      <% else %>
+        <%= link_to "Sign Up", new_user_registration_path, :class => "btn btn-default btn-xs" %>
+        <%= link_to "Sign In", new_user_session_path, :class => "btn btn-default btn-xs" %>
+        <!-- < % = render 'partials/yield' % > -->
+      <% end %>
+    
+      <div class="container">
+        <% flash.each do |name, msg| %>
+          <%= content_tag :div, msg, :id => "flash_#{name}", :class => "btn btn-xs btn-default" %>
+        <% end %>
+      </div>
+
+    </div>
+  </nav>
+</div>

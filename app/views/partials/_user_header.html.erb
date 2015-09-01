@@ -1,0 +1,9 @@
+<!-- <ul class="nav nav-pills pull-right"> -->
+<ul class="nav nav-pills">
+  <% if user_signed_in? %>
+    <li><%= link_to "Sign Out", destroy_user_session_path, :method => :delete, :class => "btn btn-default" %> %></li>
+  <% else %>
+    <li><%= link_to "Sign In", new_user_session_path, :method => :delete, :class => "btn btn-default btn-xs" %> %></li>
+    <li><%= link_to "Sign Up", new_user_registration_path, :method => :delete, :class => "btn btn-default btn-xs" %> %></li>
+  <% end %>
+</ul>

@@ -18,8 +18,10 @@
 @import "home";
 @import "main";  
 
-
-// @import "slate"; // easy to comment out fav bootstrap theme // Optional themes, choose one: http://bootswatch.com/slate/
-@import "superhero"; 
+// 1) none
+// 2) slate
+  @import "slate"; // easy to comment out fav bootstrap theme // Optional themes, choose one: http://bootswatch.com/slate/
+// 3) superhero
+  // @import "superhero"; 
 
 // invert($color) //Returns the inverse of a color.

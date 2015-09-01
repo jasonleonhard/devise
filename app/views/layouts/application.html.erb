@@ -1,29 +1,19 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Devise</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
+  <!-- < % = render 'partials/test' % > -->
+  <%= render 'partials/head' %>
 <body>
+  <%= render 'partials/user_nav' %>  <!-- sign out, sign-in and sign-up -->
 
-<div id="user_nav">
-  <% if user_signed_in? %>
-    <a class="btn btn-xs btn-default"> Signed in as <%= current_user.email %>. Not you? </a>
-    <%= link_to "Sign Out", destroy_user_session_path, :method => :delete, :class => "btn btn-xs btn-info" %>
-  <% else %>
-    <!-- <-%-= link_to “Sign up”, new_user_registration_path % > or <-%-= link_to “Sign In”, new_user_session_path % > -->
-    <%= link_to "Sign Up", new_user_registration_path, :class => "btn btn-xs btn-info" %>
-    <%= link_to "Sign In", new_user_session_path, :class => "btn btn-xs btn-info" %>
+  <% if user_signed_in? %> 
+    <%= render 'partials/jumbotron' %>
+    <%= render 'partials/headings' %>
+
+  <% else %> <!-- signin -->
+    <%= render 'partials/navbar' %> <!-- < % = render 'partials/yield' % >   < % = yield % > -->
   <% end %>
-</div>
-
-  <% flash.each do |name, msg| %>
-    <%= content_tag :div, msg, :id => "flash_#{name}", :class => "btn btn-xs btn-default" %>
-  <% end %>
-
-<%= yield %>
-
+  
 </body>
+  <%= render 'partials/footer' %>
+
 </html>
