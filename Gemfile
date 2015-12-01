@@ -2,7 +2,8 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.3'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+# gem 'sqlite3' # heroku requires postgresql 
+gem 'pg'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 gem 'bootstrap-sass', '~> 3.2.0'
@@ -21,7 +22,10 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
+# devise authentication - access - really you? - right to access, uses login screen
 gem 'devise'
+# cancan authorization - actions - permissions - rights - who is allowed to do what - role management (user, moderator, admin) CRUD
+gem 'cancan'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 # Use Unicorn as the app server
@@ -36,3 +40,8 @@ group :development, :test do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
+
+# Heroku requirements:
+gem 'rails_12factor', group: :production
+# rbenv install 2.2.0 then switch to correct version, finally at the end of Gemfile add:
+ruby "2.2.0"
