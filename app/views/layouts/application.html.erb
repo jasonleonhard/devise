@@ -5,6 +5,8 @@
 <body>
   <%= render 'partials/user_nav' %>  <!-- sign out, sign-in and sign-up -->
 
+<%= yield %>
+
   <% if user_signed_in? %> 
     <%= render 'partials/jumbotron' %>
     <%= render 'partials/headings' %>
@@ -13,6 +15,7 @@
     <%= render 'partials/navbar' %> <!-- < % = render 'partials/yield' % >   < % = yield % > -->
   <% end %>
   
+
 </body>
   <%= render 'partials/footer' %>
 

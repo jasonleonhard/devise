@@ -1,5 +1,9 @@
 <div class="container">
   <div id="user_nav">
+
+    <%= link_to "home", home_index_path, :class => "btn btn-default btn-xs" %>
+    <%= link_to "about", about_index_path, :class => "btn btn-default btn-xs" %>
+    <%= link_to "dashboard", dashboard_index_path, :class => "btn btn-default btn-xs" %>
   
     <% if user_signed_in? %>
       <a class="btn btn-xs btn-default"> Signed in as <%= current_user.email %>. Not you? </a>
@@ -9,7 +13,7 @@
       <%= link_to "Sign In", new_user_session_path, :class => "btn btn-default" %>
       <!-- < % = render 'partials/yield' % > -->
     <% end %>
-
+    
   </div>
     <% flash.each do |name, msg| %>
       <%= content_tag :div, msg, :id => "flash_#{name}", :class => "btn btn-xs btn-default" %>
